@@ -1,6 +1,6 @@
 # zabbix_aws_terminate
 
-### Esse projeto é PoC funcional para automatizar a remoção das maquinas ec2 do Zabbix
+### Esse projeto é PoC funcional para automatizar a remoção das maquinas ec2 do Zabbix:
 
 Abaixo esta um passo a passo manual (por enquanto).
 
@@ -13,7 +13,7 @@ Abaixo esta um passo a passo manual (por enquanto).
 > 7. As maquinas ec2 devem possuir o aws cli previamente configurados e com acesso para executar o lambda;
 > 8. Ao criar as maquinas na EC2, adicione o comando abaixo no user data;
 > - aws lambda invoke --invocation-type RequestResponse --function-name zabbix_terminate --region sa-east-1 --payload '{"action":"update_description", "description":"'$(/opt/aws/bin/ec2-metadata -i | cut -d' ' -f2)'", "host":"'$NOVOHOSTNAME'"}' /dev/null
->    - OBS: A variavel $NOVOHOSTNAME, deve ser o nome da maquina cadastrada no zabbix
-> 9. Criar uma nova regra no CloudWatch, baseada em evento para executar o lambda utilizando como entrada o "Matched event"
+>    - OBS: A variavel $NOVOHOSTNAME, deve ser o nome da maquina cadastrada no zabbix.
+> 9. Criar uma nova regra no CloudWatch, baseada em evento para executar o lambda utilizando como entrada o "Matched event".
 
 
